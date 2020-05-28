@@ -10,6 +10,12 @@ namespace LMS
 {
     public partial class Login : Page
     {
+        MembershipProvider Membership = null;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            this.Membership = System.Web.Security.Membership.Provider;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -43,29 +49,23 @@ namespace LMS
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
-            int userId = 0;
+            bool rememberme = chkRememberMe.Checked;
+            var isAuthenticated = false;
 
-            if (string.IsNullOrEmpty(password))
+            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-                PasswordInvalid.Visible = true;
+                //MembershipProvider currentProvider = System.Web.Security.Membership.Provider;
+
+                // Validate the user against the custom SQL Membership Provider
+                isAuthenticated = Membership.ValidateUser(username, password);
+
+                if (isAuthenticated)
+                {
+                    // Log the user into the site
+                    FormsAuthentication.RedirectFromLoginPage(username, rememberme);
+                }
             }
         }
-            protected void login_Authenticate(object sender, AuthenticateEventArgs e)
-        {
-            /*
-            if (login.UserName.Contains("KIngsley") && login.Password.Contains("gmail.com"))
-            {
-                e.Authenticated = true;  
-                //login.Visible = false;
-                MessageAuthentication.InnerText = "Successfully Logged In";
-            }
-            else
-            {
-                e.Authenticated = false;
-                MessageAuthentication.InnerText = "Error Logging In";
-                //login.Visible = true;
-            }
-            */
-        }
+      
     }
 }

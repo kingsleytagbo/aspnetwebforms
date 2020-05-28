@@ -13,5 +13,12 @@ namespace LMS
         {
 
         }
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            // Sign-Out / Logout the User
+            System.Web.Security.FormsAuthentication.SignOut();
+            //Response.Redirect("Login", true);
+        }
     }
 }
