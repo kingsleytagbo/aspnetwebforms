@@ -16,6 +16,13 @@ namespace LMS
         {
             this.Membership = System.Web.Security.Membership.Provider;
         }
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            // Sign-Out / Logout the User
+            System.Web.Security.FormsAuthentication.SignOut();
+            //Response.Redirect("Login", true);
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -40,6 +47,7 @@ namespace LMS
                 Response.Write("<br/>UserData: " + ticket.UserData);
                 Response.Write("<br/>Version: " + ticket.Version.ToString());
 
+                //Response.Redirect("Register.aspx");
                 FormsAuthentication.SignOut();
                 FormsAuthentication.RedirectToLoginPage();
             }
