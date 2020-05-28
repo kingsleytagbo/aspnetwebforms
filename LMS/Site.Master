@@ -12,20 +12,23 @@
     <link href="Content/Themes/bootstrap/4_5/css/bootstrap.min.css" rel="stylesheet">
     <title>LMS</title>
     <style>
-        .LightBlueBG{
+        .LightBlueBG {
             background-color: #2988B5;
             color: #FFF;
             padding: 4px;
             text-transform: uppercase;
         }
-        .LightGrey{
+
+        .LightGrey {
             background-color: #DEDEDE;
         }
-        .DarkRed{
+
+        .DarkRed {
             color: #A93A44;
         }
-        .Lightred{
-            color:#FFE8EA;
+
+        .Lightred {
+            color: #FFE8EA;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -42,9 +45,10 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active"><a class="nav-link" href="/Default.aspx">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <% if (Request.IsAuthenticated){%>
-                        <li class="nav-item"><a ID="LogoutLink" class="nav-link" href="Login" OnClick="Logout" runat="server">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Register.aspx">Register</a></li>
+                    <% if (Request.IsAuthenticated)
+                        {%>
+                    <li class="nav-item"><a id="LogoutLink" class="nav-link" href="Login" onclick="Logout" runat="server">Logout</a></li>
                     <%}  %>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown04">Dropdown <span class="caret"></span></a>
@@ -62,7 +66,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <asp:ContentPlaceHolder ID="HeaderContent" runat="server"></asp:ContentPlaceHolder>
+                    <div class="alert alert-warning show text-center LightBlueBG" role="alert">
+                        <asp:ContentPlaceHolder ID="HeaderContent" runat="server"></asp:ContentPlaceHolder>
+                    </div>
                 </div>
             </div>
 

@@ -1,9 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="LMS.Login" %>
 
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeaderContent" runat="server">
-    <div class="alert alert-warning show text-center LightBlueBG" role="alert">
         <h3>Login</h3>
-    </div>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
