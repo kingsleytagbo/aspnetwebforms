@@ -16,7 +16,7 @@
 
         <div class="form-group">
             <label for="txtFirstName">First Name: *</label>
-            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" placeholder="" />
+            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control"  ClientIDMode="Static" />
         </div>
 
         <div class="form-group">
@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <label for="DropDownListState">State: *</label>
-            <asp:DropDownList ID="DropDownListState" runat="server" CssClass="form-control" >
+            <asp:DropDownList ID="DropDownListState" runat="server" CssClass="form-control" required="true" >
                 <asp:ListItem Value="">Select State</asp:ListItem>
                 <asp:ListItem Value="AL">Alabama</asp:ListItem>
                 <asp:ListItem Value="AK">Alaska</asp:ListItem>
@@ -126,15 +126,32 @@
 </asp:Content>
 
 <asp:Content ID="Script" ContentPlaceHolderID="ScriptContent" runat="server">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             console.log($("#btnContinue"));
-            $("#btnContinue").prop('disabled', true);
+            //$("#btnContinue").prop('disabled', true);
+
+            $('#txtFirstName').keyup(function () {
+                console.log({ length: $(this).val().length, group: $('#txtFirstName').closest(".form-group") });
+                let $label = $("label[for='" + 'txtFirstName' + "']");
+                if ($(this).val().length === 0) {
+                    //$('#txtFirstName').closest("label").addClass("text-danger");
+                    $(this).addClass("is-invalid");
+                    $label.addClass("text-danger");
+                }
+                else {
+                    //$('#txtFirstName').closest("label").removeClass("text-danger");
+                    $(this).removeClass("is-invalid");
+                    $label.removeClass("text-danger");
+                }
+            });
         });
+
         function btn_disable(event) {
-            console.log($("#btnContinue"));
             $("#btnContinue").prop('disabled', true);
             return true;
         }
     </script>
+
 </asp:Content>
