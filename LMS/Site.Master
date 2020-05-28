@@ -10,12 +10,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="Content/Themes/bootstrap/4_5/css/bootstrap.min.css" rel="stylesheet">
-
     <title>LMS</title>
+    <style>
+        .LightBlueBG{
+            background-color: #2988B5;
+            color: #FFF;
+            font-size: 1.4REM;
+            padding: 4px;
+            text-transform: uppercase;
+        }
+        .LightGrey{
+            background-color: #DEDEDE;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="padding-top: 70px;">
+<body style="padding-top: 70px;" class="LightGrey">
     <form id="form1" runat="server">
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -31,9 +42,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown04">Dropdown <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
                 </ul>
@@ -41,10 +52,28 @@
             <!--/.nav-collapse -->
         </nav>
 
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <asp:ContentPlaceHolder ID="HeaderContent" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="row was-validated">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <div style="background-color: white; padding: 2rem;">
+                                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </div>
+
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - LMS</p>
             </footer>
