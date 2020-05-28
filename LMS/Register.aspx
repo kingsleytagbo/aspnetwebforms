@@ -10,13 +10,13 @@
 
         <div class="row">
             <div class="col-12">
-               <h6 class="DarkGrey mb-2">Please fill in the following required information.</h6>
+                <h6 class="DarkGrey mb-2">Please fill in the following required information.</h6>
             </div>
         </div>
 
         <div class="form-group">
             <label for="txtFirstName">First Name: *</label>
-            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" placeholder="" required="true" />
+            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" placeholder="" />
         </div>
 
         <div class="form-group">
@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <label for="DropDownListState">State: *</label>
-            <asp:DropDownList ID="DropDownListState" runat="server" CssClass="form-control" required="true">
+            <asp:DropDownList ID="DropDownListState" runat="server" CssClass="form-control" >
                 <asp:ListItem Value="">Select State</asp:ListItem>
                 <asp:ListItem Value="AL">Alabama</asp:ListItem>
                 <asp:ListItem Value="AK">Alaska</asp:ListItem>
@@ -82,11 +82,11 @@
             </asp:DropDownList>
         </div>
 
-                <div class="row">
+        <div class="row">
             <div class="col-12">
-               <h6 class="DarkGrey mb-2">Please provide your email address.<br />
-                   All meeting correspondence will be sent via email.
-               </h6>
+                <h6 class="DarkGrey mb-2">Please provide your email address.<br />
+                    All meeting correspondence will be sent via email.
+                </h6>
             </div>
         </div>
 
@@ -110,7 +110,8 @@
             <div class="col-12">
                 <div class="form-group">
                     <div class="float-right">
-                        <asp:Button ID="btnContinue" Text="Continue" runat="server" OnClick="RegisterUser" Class="btn btn-info" />
+                        <asp:Button ID="btnContinue" Text="Continue" runat="server" Class="btn btn-info"
+                            ClientIDMode="Static" OnClientClick="return btn_disable;" />
                     </div>
                 </div>
             </div>
@@ -122,4 +123,18 @@
             <asp:Label ID="lblMessage" runat="server" />
         </div>
     </div>
+</asp:Content>
+
+<asp:Content ID="Script" ContentPlaceHolderID="ScriptContent" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log($("#btnContinue"));
+            $("#btnContinue").prop('disabled', true);
+        });
+        function btn_disable(event) {
+            console.log($("#btnContinue"));
+            $("#btnContinue").prop('disabled', true);
+            return true;
+        }
+    </script>
 </asp:Content>
