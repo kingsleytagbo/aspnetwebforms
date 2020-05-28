@@ -23,12 +23,21 @@
             background-color: #DEDEDE;
         }
 
+        .DarkGrey {
+            color: #AAAAAA;
+        }
+
         .DarkRed {
             color: #A93A44;
         }
 
         .Lightred {
             color: #FFE8EA;
+        }
+
+        label{
+            font-weight: bold;
+            color: #555555;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
