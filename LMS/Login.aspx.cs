@@ -15,7 +15,9 @@ namespace LMS
             if (!this.IsPostBack)
                 ViewState["LoginErrors"] = 0;
 
-            if(Request!= null && Request.IsAuthenticated)
+            PasswordInvalid.Visible = true;
+
+            if (Request!= null && Request.IsAuthenticated)
             {
                 Response.Write("Hello, " + Server.HtmlEncode(User.Identity.Name));
 
@@ -36,20 +38,34 @@ namespace LMS
                 FormsAuthentication.RedirectToLoginPage();
             }
         }
-        protected void login_Authenticate(object sender, AuthenticateEventArgs e)
+
+        protected void Authenticate(object sender, EventArgs e)
         {
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
+            int userId = 0;
+
+            if (string.IsNullOrEmpty(password))
+            {
+                PasswordInvalid.Visible = true;
+            }
+        }
+            protected void login_Authenticate(object sender, AuthenticateEventArgs e)
+        {
+            /*
             if (login.UserName.Contains("KIngsley") && login.Password.Contains("gmail.com"))
             {
                 e.Authenticated = true;  
-                login.Visible = false;
+                //login.Visible = false;
                 MessageAuthentication.InnerText = "Successfully Logged In";
             }
             else
             {
                 e.Authenticated = false;
                 MessageAuthentication.InnerText = "Error Logging In";
-                login.Visible = true;
+                //login.Visible = true;
             }
+            */
         }
     }
 }
