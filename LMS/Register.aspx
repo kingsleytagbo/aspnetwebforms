@@ -21,12 +21,12 @@
 
         <div class="form-group">
             <label for="txtLastName">Last Name: *</label>
-            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" placeholder="" />
+            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" ClientIDMode="Static" />
         </div>
 
         <div class="form-group">
-            <label for="DropDownListState">State: *</label>
-            <asp:DropDownList ID="DropDownListState" runat="server" CssClass="form-control" required="true" >
+            <label for="dropDownListState">State: *</label>
+            <asp:DropDownList ID="dropDownListState" runat="server" CssClass="form-control" ClientIDMode="Static" >
                 <asp:ListItem Value="">Select State</asp:ListItem>
                 <asp:ListItem Value="AL">Alabama</asp:ListItem>
                 <asp:ListItem Value="AK">Alaska</asp:ListItem>
@@ -92,12 +92,12 @@
 
         <div class="form-group">
             <label for="txtEmail">Email: *</label>
-            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="" />
+            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" ClientIDMode="Static" />
         </div>
 
         <div class="form-group">
             <label for="txtConfirmEmail">Confirm Email: *</label>
-            <asp:TextBox ID="txtConfirmEmail" runat="server" CssClass="form-control" placeholder="" />
+            <asp:TextBox ID="txtConfirmEmail" runat="server" CssClass="form-control" ClientIDMode="Static" />
         </div>
 
         <div class="form-group form-check">
@@ -128,30 +128,99 @@
 <asp:Content ID="Script" ContentPlaceHolderID="ScriptContent" runat="server">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            console.log($("#btnContinue"));
-            //$("#btnContinue").prop('disabled', true);
+        const LMS = (function () {
+            'use strict';
 
-            $('#txtFirstName').keyup(function () {
-                console.log({ length: $(this).val().length, group: $('#txtFirstName').closest(".form-group") });
-                let $label = $("label[for='" + 'txtFirstName' + "']");
-                if ($(this).val().length === 0) {
-                    //$('#txtFirstName').closest("label").addClass("text-danger");
-                    $(this).addClass("is-invalid");
-                    $label.addClass("text-danger");
+            return {
+
+                ValidateInputs: function () {
+                    let isValid = true;
+                    const inputs = ['txtFirstName', 'txtLastName', 'txtEmail', 'txtConfirmEmail', 'dropDownListState'];
+
+                    for (let i = 0; i < inputs.length; i++) {
+                        let validInput = this.ValidateInput(inputs[i]);
+                        if (!validInput) {
+                            isValid = false;
+                        }
+                    }
+
+                    if (!isValid) {
+                        $("#btnContinue").prop('disabled', true);
+                    }
+                    else {
+                        $("#btnContinue").prop('disabled', false);
+                    }
+
+                },
+
+                ValidateInput: function (input) {
+
+                    let isValid = false;
+                    let validationMessage = '';
+                    const messages = {
+                        txtFirstName: 'Please enter a valid First Name',
+                        txtLastName: 'Please enter a valid Last Name',
+                        dropDownListState: 'Please choose a State',
+                        txtEmail: 'Please enter a valid email',
+                        txtConfirmEmail: 'Please confirm your email'
+                    }
+
+                    if (input) {
+                        validationMessage = messages[input];
+                    }
+
+                    const $label = $("label[for='" + input + "']");
+                    const $this = $('#' + input);
+                    const element = $this[0];
+
+                    if ($this.val().length === 0) {
+                        element.setCustomValidity(validationMessage);
+                        if (!$this.hasClass("is-invalid")) {
+                            $this.addClass("is-invalid");
+                        }
+                        if (!$this.hasClass("text-danger")) {
+                            $label.addClass("text-danger");
+                        }
+                    }
+                    else {
+                        element.setCustomValidity('');
+                        $this.removeClass("is-invalid");
+                        $label.removeClass("text-danger");
+                        isValid = true;
+                    }
+
+                    return isValid;
+
                 }
-                else {
-                    //$('#txtFirstName').closest("label").removeClass("text-danger");
-                    $(this).removeClass("is-invalid");
-                    $label.removeClass("text-danger");
-                }
+
+            }
+
+        }());
+
+        $(document).ready(function () {
+
+            LMS.ValidateInputs();
+
+            $('#txtFirstName, #txtLastName, #txtEmail, #txtConfirmEmail').keyup(function () {
+                const inputId = $(this).attr("id");
+                    //LMS.ValidateInput(inputId);
+                LMS.ValidateInputs();
             });
+
+            $('#dropDownListState').change(function () {
+                const inputId = $(this).attr("id");
+                //LMS.ValidateInput(inputId);
+                LMS.ValidateInputs();
+            });
+
         });
 
         function btn_disable(event) {
             $("#btnContinue").prop('disabled', true);
             return true;
         }
+
+
     </script>
 
 </asp:Content>

@@ -33,13 +33,13 @@ namespace LMS
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
-        /// DropDownListState control.
+        /// dropDownListState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListState;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownListState;
 
         /// <summary>
         /// txtEmail control.
