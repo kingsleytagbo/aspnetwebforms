@@ -30,6 +30,10 @@
         .DarkGrey {
             color: #AAAAAA;
         }
+        .DarkGreyBG {
+            background-color: #AAAAAA !important;
+            color: #AAAAAA !important;
+        }
         .DarkRed {
             color: #A93A44;
         }
@@ -43,21 +47,21 @@
             font-weight: bold;
             color: #555555;
         }
-        input[type=checkbox]{
-            width:0.9rem;
-            height:0.9rem;
+        input[type=checkbox] {
+            width: 0.9rem;
+            height: 0.9rem;
             margin-right: 0.33rem;
             background-color: #FFFFFF;
         }
-        input[type=checkbox]:checked{
-            background-color: #FFFFFF;
-        }
+
+            input[type=checkbox]:checked {
+                background-color: #FFFFFF;
+            }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body style="padding-top: 70px;" class="LightGrey">
-    <form id="SiteMasterForm" runat="server" novalidate>
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">LMS</a>
@@ -78,9 +82,9 @@
         </nav>
 
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="alert alert-warning show text-center LightBlueBG" role="alert">
+            <div class="row mx-0 px-0">
+                <div class="col-12 px-0">
+                    <div class="alert alert-warning show text-center mb-5 mt-5 LightBlueBG" role="alert">
                         <asp:ContentPlaceHolder ID="HeaderContent" runat="server"></asp:ContentPlaceHolder>
                     </div>
                 </div>
@@ -92,8 +96,10 @@
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
                             <div style="background-color: white; padding: 2rem;" class="mb-3">
-                                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                                </asp:ContentPlaceHolder>
+                                <form id="SiteMasterForm" runat="server" novalidate>
+                                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </form>
                             </div>
                         </div>
                         <div class="col-md-3"></div>
@@ -102,10 +108,10 @@
             </div>
 
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - LMS</p>
+                <nav class="navbar fixed-bottom navbar-expand bg-secondary pt-3 pb-3 DarkGreyBG">
+                    <a class="text-secondary mx-auto" href="#"><div class="DarkGreyBG">&copy; <%: DateTime.Now.Year %> - LMS</div> </a></nav>
             </footer>
         </div>
-    </form>
 
     <!-- jQuery and Bootstrap JS files -->
     <script src="Scripts/jquery-3.4.1.min.js"></script>

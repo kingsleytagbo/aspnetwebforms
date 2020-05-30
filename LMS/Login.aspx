@@ -13,6 +13,11 @@
         </div>
 
         <div class="form-group">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="DarkGrey mb-2">Please enter you case sensitive password from your official invitation.</h6>
+                </div>
+            </div>
             <label for="txtPassword">Password *</label>
             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password ..." />
             <div id="PasswordValid" runat="server" class="valid-feedback"></div>
@@ -28,7 +33,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <div class="float-right">
-                        <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="Authenticate" Class="btn btn-info" />
+                        <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="Authenticate" Class="btn btn-info btn-lg DarkBlue" />
                     </div>
                 </div>
             </div>
