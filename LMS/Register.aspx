@@ -128,17 +128,21 @@
 <asp:Content ID="Script" ContentPlaceHolderID="ScriptContent" runat="server">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript">
-        const LMS = (function () {
+        const LMSApp = (function () {
             'use strict';
 
             return {
 
-                ValidateInputs: function () {
+                getElementRef: function (input) {
+                    return $('#' + input);
+                },
+
+                validateInputs: function () {
                     let isValid = true;
                     const inputs = ['txtFirstName', 'txtLastName', 'txtEmail', 'txtConfirmEmail', 'dropDownListState'];
 
                     for (let i = 0; i < inputs.length; i++) {
-                        let validInput = this.ValidateInput(inputs[i]);
+                        let validInput = this.validateInput(inputs[i]);
                         if (!validInput) {
                             isValid = false;
                         }
@@ -153,7 +157,7 @@
 
                 },
 
-                ValidateInput: function (input) {
+                validateInput: function (input) {
 
                     let isValid = false;
                     let validationMessage = '';
@@ -170,7 +174,7 @@
                     }
 
                     const $label = $("label[for='" + input + "']");
-                    const $this = $('#' + input);
+                    const $this = LMSApp.getElementRef(input);
                     const element = $this[0];
 
                     if ($this.val().length === 0) {
@@ -182,6 +186,13 @@
                             $label.addClass("text-danger");
                         }
                     }
+                    else if
+                        (
+                            ((input === 'txtEmail') || (input === 'txtConfirmEmail')) &&
+                            (LMSApp.getElementRef('txtEmail').val() != LMSApp.getElementRef('txtConfirmEmail').val())
+                        ) {
+                            isValid = false;
+                          }
                     else {
                         element.setCustomValidity('');
                         $this.removeClass("is-invalid");
@@ -199,18 +210,16 @@
 
         $(document).ready(function () {
 
-            LMS.ValidateInputs();
+            LMSApp.validateInputs();
 
             $('#txtFirstName, #txtLastName, #txtEmail, #txtConfirmEmail').keyup(function () {
                 const inputId = $(this).attr("id");
-                    //LMS.ValidateInput(inputId);
-                LMS.ValidateInputs();
+                LMSApp.validateInputs();
             });
 
             $('#dropDownListState').change(function () {
                 const inputId = $(this).attr("id");
-                //LMS.ValidateInput(inputId);
-                LMS.ValidateInputs();
+                LMSApp.validateInputs();
             });
 
         });
