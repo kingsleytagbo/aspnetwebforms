@@ -71,6 +71,27 @@ namespace LMS
                 {
                     // Log the user into the site
                     FormsAuthentication.RedirectFromLoginPage(username, rememberme);
+
+                    string userData = "ApplicationSpecific data for this user.";
+
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+                      username,
+                      DateTime.Now,
+                      DateTime.Now.AddMinutes(30),
+                      rememberme,
+                      userData,
+                      FormsAuthentication.FormsCookiePath);
+
+                    // Encrypt the ticket.
+                    string encTicket = FormsAuthentication.Encrypt(ticket);
+
+                    // Create the cookie.
+                    Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+                    // Redirect back to original URL.
+                    // Response.Redirect(FormsAuthentication.GetRedirectUrl(username, rememberme));
+                    Response.Redirect("Register.aspx", false);
+
                 }
             }
         }

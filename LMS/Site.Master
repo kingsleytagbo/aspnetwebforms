@@ -90,9 +90,9 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-12">
-                    <div class="row was-validated">
+                    <div class="row was-validated mb-5">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
                             <div style="background-color: white; padding: 2rem;" class="mb-3">
@@ -107,8 +107,8 @@
                 </div>
             </div>
 
-            <footer>
-                <nav class="navbar fixed-bottom navbar-expand bg-secondary pt-3 pb-3 DarkGreyBG">
+            <footer class="mt-5">
+                <nav class="navbar fixed-bottom navbar-expand bg-secondary pt-3 pb-3 mt-5 DarkGreyBG">
                     <a class="text-secondary mx-auto" href="#"><div class="DarkGreyBG">&copy; <%: DateTime.Now.Year %> - LMS</div> </a></nav>
             </footer>
         </div>
