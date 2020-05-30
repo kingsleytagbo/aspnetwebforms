@@ -51,6 +51,7 @@ namespace LMS
             else
             {
                 //Server Side Validation Succeeded
+                Response.Redirect("RegisterThankYou");
             }
         }
       
