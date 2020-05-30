@@ -31,7 +31,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="row mb-3" style="position:relative;">
+    <div class="row mb-3 rounded-lg" style="position:relative;">
 
                 <div class="col-sm-1 mx-0 px-0">
                     <div class="progress-box LightBlue" style="float:right;">

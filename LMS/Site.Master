@@ -93,16 +93,16 @@
             <div class="row mb-5">
                 <div class="col-12">
                     <div class="row was-validated mb-5">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                            <div style="background-color: white; padding: 2rem;" class="mb-3">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div style="background-color: white; padding: 2rem;" class="mb-3 rounded-lg">
                                 <form id="SiteMasterForm" runat="server" novalidate>
                                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                                     </asp:ContentPlaceHolder>
                                 </form>
                             </div>
                         </div>
-                        <div class="col-md-3"></div>
+                        <div class="col-md-2"></div>
                     </div>
                 </div>
             </div>
