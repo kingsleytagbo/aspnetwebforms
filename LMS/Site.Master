@@ -58,7 +58,7 @@
                 background-color: #FFFFFF;
             }
     </style>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="MetaContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body style="padding-top: 70px;" class="LightGrey">

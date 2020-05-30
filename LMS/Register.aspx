@@ -1,10 +1,66 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="LMS.Register" %>
 
+<asp:Content ID="MetaTags" ContentPlaceHolderID="MetaContent" runat="server">
+    <style>
+        .progress-box {
+            height: 3rem;
+            width: 100%;
+            color: white;
+            border-radius: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .progress-line {
+            position: absolute;
+            top: 25%;
+            left: 0%;
+            height: 0.2rem;
+            width: 100%;
+            border-radius: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</asp:Content>
+
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeaderContent" runat="server">
     <h3>Contact Information</h3>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    <div class="row mb-3" style="position:relative;">
+
+                <div class="col-sm-1 mx-0 px-0">
+                    <div class="progress-box LightBlue" style="float:right;">
+                        1
+                    </div>
+                    <div class="LightBlue mt-3 mp-2 mx-auto" style="background-color:#FFF; text-transform:uppercase;">Register</div>
+                </div>
+                <div class="col-sm-4 mx-0 px-0">
+                    <div class="progress-line DarkBlue">
+                    </div>
+                </div>
+                <div class="col-sm-1 mx-0 px-0">
+                    <div class="progress-box DarkBlue">
+                        2
+                    </div>
+                    <div class="LightBlue mt-2 mp-2 mx-auto" style="background-color:#FFF; text-transform:uppercase;">Submit Info</div>
+                </div>
+                <div class="col-sm-5 mx-0 px-0">
+                    <div class="progress-line DarkBlue">
+                    </div>
+                </div>
+                <div class="col-sm-1 mx-0 px-0">
+                    <div class="progress-box LightBlue">
+                        3
+                    </div>
+                    <div class="LightBlue mt-2 mp-2" style="background-color:#FFF; text-transform:uppercase;">Complete</div>
+                </div>
+
+    </div>
 
     <div class="was-validated">
 
