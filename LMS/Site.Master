@@ -12,32 +12,45 @@
     <link href="Content/Themes/bootstrap/4_5/css/bootstrap.min.css" rel="stylesheet">
     <title>LMS</title>
     <style>
+        .LightBlue{
+            background-color: #2988B5;
+        }
+        .DarkBlue{
+            background-color: #1B5875;
+        }
         .LightBlueBG {
             background-color: #2988B5;
             color: #FFF;
             padding: 4px;
             text-transform: uppercase;
         }
-
         .LightGrey {
             background-color: #DEDEDE;
         }
-
         .DarkGrey {
             color: #AAAAAA;
         }
-
         .DarkRed {
             color: #A93A44;
         }
-
-        .Lightred {
+        .LightRed {
             color: #FFE8EA;
         }
-
-        label{
+        .Text{
+            color: #555555;
+        }
+        label {
             font-weight: bold;
             color: #555555;
+        }
+        input[type=checkbox]{
+            width:0.9rem;
+            height:0.9rem;
+            margin-right: 0.33rem;
+            background-color: #FFFFFF;
+        }
+        input[type=checkbox]:checked{
+            background-color: #FFFFFF;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">

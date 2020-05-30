@@ -100,9 +100,9 @@
             <asp:TextBox ID="txtConfirmEmail" runat="server" CssClass="form-control" ClientIDMode="Static" />
         </div>
 
-        <div class="form-group form-check">
+        <div class="form-group">
             <div class="checkbox">
-                <asp:CheckBox ID="chkSubscribe" Checked="true" Text="Subscribe to Newsletter" runat="server" />
+                <asp:CheckBox ID="chkSubscribeMe" Checked="true" Text="  Subscribe to Newsletter" runat="server" />
             </div>
         </div>
 
@@ -110,8 +110,8 @@
             <div class="col-12">
                 <div class="form-group">
                     <div class="float-right">
-                        <asp:Button ID="btnContinue" Text="Continue" runat="server" Class="btn btn-info"
-                            ClientIDMode="Static" OnClientClick="return btn_disable;" />
+                        <asp:Button ID="btnContinue" Text="Continue" runat="server" Class="btn btn-info btn-lg DarkBlue"
+                            ClientIDMode="Static" OnClientClick="return btn_disable;" OnClick="RegisterUser" />
                     </div>
                 </div>
             </div>
