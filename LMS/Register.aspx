@@ -10,6 +10,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border: 1px solid #000; 
         }
         .progress-line {
             position: absolute;
@@ -21,6 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border: 1px solid #000;
         }
     </style>
 </asp:Content>
@@ -31,13 +33,13 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="row mb-3 rounded-lg" style="position:relative;">
+    <div class="row mb-3 rounded-lg p-2" style="position:relative;">
 
                 <div class="col-sm-1 mx-0 px-0">
-                    <div class="progress-box LightBlue" style="float:right;">
+                    <div class="progress-box DarkBlue">
                         1
                     </div>
-                    <div class="LightBlue mt-3 mp-2 mx-auto" style="background-color:#FFF; text-transform:uppercase;">Register</div>
+                    <div class="LightBlue mt-1 pt-1 mx-auto" style="background-color:#FFF; font-size:1rem; text-transform:uppercase;">Register</div>
                 </div>
                 <div class="col-sm-4 mx-0 px-0">
                     <div class="progress-line DarkBlue">
@@ -47,17 +49,17 @@
                     <div class="progress-box DarkBlue">
                         2
                     </div>
-                    <div class="LightBlue mt-2 mp-2 mx-auto" style="background-color:#FFF; text-transform:uppercase;">Submit Info</div>
+                    <div class="LightBlue mt-1 pt-1 mx-auto" style="background-color:#FFF; text-transform:uppercase;">Submit Info</div>
                 </div>
                 <div class="col-sm-5 mx-0 px-0">
                     <div class="progress-line DarkBlue">
                     </div>
                 </div>
                 <div class="col-sm-1 mx-0 px-0">
-                    <div class="progress-box LightBlue">
+                    <div class="progress-box" style="color: #000;">
                         3
                     </div>
-                    <div class="LightBlue mt-2 mp-2" style="background-color:#FFF; text-transform:uppercase;">Complete</div>
+                    <div class="LightBlue Text mt-1 pt-1 mx-auto" style="background-color:#FFF; color: #FFF; text-transform:uppercase;">Complete</div>
                 </div>
 
     </div>
