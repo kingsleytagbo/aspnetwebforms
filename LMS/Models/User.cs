@@ -3,7 +3,7 @@ using System.Data.Linq.Mapping;
 
 namespace LMS.Models
 {
-    [Table(Name = "Users")]
+    [Table(Name = "User")]
     public class User
     {
         [Column(IsPrimaryKey = true, IsDbGenerated = true, AutoSync = AutoSync.OnInsert)]

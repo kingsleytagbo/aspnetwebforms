@@ -11,11 +11,28 @@ namespace LMS
 {
     public class Global : HttpApplication
     {
-        void Application_Start(object sender, EventArgs e)
+        MembershipProvider Membership = null;
+        
+        protected void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            this.Membership = System.Web.Security.Membership.Provider;
+            int totalUsers = -1;
+
+            if(Membership!= null)
+            {
+                var user = Membership.GetAllUsers(0, 1, out totalUsers);
+
+                if (user == null)
+                {
+                    var membershipStatus = new System.Web.Security.MembershipCreateStatus();
+                    this.Membership.CreateUser("Kingsley", "@gmail.com", "@gmail.com", "What is my first name", "KIngsley",
+                         true, null, out membershipStatus);
+                }
+            }
 
             /*
             var membershipStatus = new System.Web.Security.MembershipCreateStatus();
@@ -35,13 +52,6 @@ namespace LMS
 
                 var ticket = FormsAuthentication.Decrypt(authCookie.Value);
 
-                /*
-                var serializer = new JavaScriptSerializer();
-                var user = serializer.Deserialize<User>(ticket.UserData);
-                var newUser = FormsAuthHelper.GetPrincipal(user);
-
-                HttpContext.Current.User = newUser;
-                */
             }
             catch(Exception ex)
             {

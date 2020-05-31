@@ -17,22 +17,15 @@ namespace LMS.Repositories
 
         public UserRepository()
         {
-            string connectionString =
-              ConfigurationManager.ConnectionStrings["SqlServices"].ConnectionString;
-            context = new DataContext(connectionString);
-            usersTable = context.GetTable<User>();
-
             try
             {
-                DataContext localDb = new DataContext(@"..\..\App_Data\LMSDB.mdf");
-                if (localDb.DatabaseExists())
-                {
-                    Console.WriteLine("Deleting old database...");
-                    //localDb.DeleteDatabase();
-                }
-                //localDb.CreateDatabase();
+                string connectionString =
+              ConfigurationManager.ConnectionStrings["SqlServices"].ConnectionString;
+                context = new DataContext(connectionString);
+
+                usersTable = context.GetTable<User>();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
@@ -54,6 +47,18 @@ namespace LMS.Repositories
         public IEnumerable<User> GetAllUsers()
         {
             return usersTable.AsEnumerable();
+        }
+
+        public IEnumerable<User> GetAllUsers(int pageIndex, int pageSize, out int totalRecords)
+        {
+            totalRecords = -1;
+
+            var users = usersTable.Select(p => p)
+             .Skip(pageIndex)
+             .Take(pageSize)
+             .ToArray();
+
+            return users;
         }
 
         public int RegisterUser(User User)

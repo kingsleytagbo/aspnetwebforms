@@ -76,6 +76,26 @@ namespace LMS.Business
             return null;
         }
 
+        public override MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords)
+        {
+            UserRepository userRep = new UserRepository();
+            MembershipUserCollection result = null;
+
+           var users = userRep.GetAllUsers(pageIndex, pageSize, out totalRecords).ToList();
+
+            if(users != null && users.Count > 0)
+            {
+                result = new MembershipUserCollection();
+
+                foreach(var user in users)
+                {
+                    //TODO:
+                }
+            }
+
+            return result;
+        }
+
         public override bool ValidateUser(string username, string password)
         {
             string sha1Pswd = GetMD5Hash(password);
@@ -176,10 +196,6 @@ namespace LMS.Business
             throw new NotImplementedException();
         }
 
-        public override MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords)
-        {
-            throw new NotImplementedException();
-        }
 
         public override int GetNumberOfUsersOnline()
         {
