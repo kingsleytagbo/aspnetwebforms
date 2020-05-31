@@ -40,7 +40,7 @@ namespace LMS.Business
                 User userObj = new User();
                 userObj.UserName = username;
                 userObj.Password = GetMD5Hash(password);
-                userObj.UserEmailAddress = email;
+                userObj.EmailAddress = email;
 
                 UserRepository userRep = new UserRepository();
                 userRep.RegisterUser(userObj);
@@ -65,7 +65,7 @@ namespace LMS.Business
             if (user != null)
             {
                 MembershipUser memUser = new MembershipUser("CustomMembershipProvider",
-                                               username, user.UserID, user.UserEmailAddress,
+                                               username, user.UserID, user.EmailAddress,
                                                string.Empty, string.Empty,
                                                true, false, DateTime.MinValue,
                                                DateTime.MinValue,

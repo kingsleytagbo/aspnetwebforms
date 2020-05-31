@@ -10,6 +10,12 @@ namespace LMS.Models
         public int UserID { get; set; }
         [Column] public string UserName { get; set; }
         [Column] public string Password { get; set; }
-        [Column] public string UserEmailAddress { get; set; }
+        [Column] public string EmailAddress { get; set; }
+
+        [Column] public string FirstName { get; set; }
+
+        [Column] public string LastName { get; set; }
+
+        [Column] public string State { get; set; }
     }
 }

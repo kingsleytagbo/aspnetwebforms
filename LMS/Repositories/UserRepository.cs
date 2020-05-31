@@ -21,6 +21,21 @@ namespace LMS.Repositories
               ConfigurationManager.ConnectionStrings["SqlServices"].ConnectionString;
             context = new DataContext(connectionString);
             usersTable = context.GetTable<User>();
+
+            try
+            {
+                DataContext localDb = new DataContext(@"..\..\App_Data\LMSDB.mdf");
+                if (localDb.DatabaseExists())
+                {
+                    Console.WriteLine("Deleting old database...");
+                    //localDb.DeleteDatabase();
+                }
+                //localDb.CreateDatabase();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         public User GetUserByUserName(string userName, string passWord)
@@ -46,7 +61,7 @@ namespace LMS.Repositories
             User user = new User();
             user.UserName = User.UserName;
             user.Password = User.Password;
-            user.UserEmailAddress = User.UserEmailAddress;
+            user.EmailAddress = User.EmailAddress;
 
             usersTable.InsertOnSubmit(user);
             context.SubmitChanges();
