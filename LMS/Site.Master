@@ -15,6 +15,9 @@
         .LightBlue{
             background-color: #2988B5;
         }
+       .LightBlueColor{
+            color: #2988B5;
+        }
         .DarkBlue{
             background-color: #1B5875;
         }

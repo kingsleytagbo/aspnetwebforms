@@ -16,13 +16,13 @@
             position: absolute;
             top: 25%;
             left: 0%;
-            height: 0.2rem;
+            height: 0.3rem;
             width: 100%;
             border-radius: 0px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid #000;
+            border: 1px solid #DEDEDE;
         }
     </style>
 </asp:Content>
@@ -39,7 +39,9 @@
                     <div class="progress-box DarkBlue">
                         1
                     </div>
-                    <div class="LightBlue mt-1 pt-1 mx-auto" style="background-color:#FFF; font-size:1rem; text-transform:uppercase;">Register</div>
+                    <h6 class="LightBlue LightBlueColor mt-1 pt-1 mx-auto" style="                            background-color: #FFF;
+                            font-size: 1rem;
+                            text-transform: uppercase;">Register</h6>
                 </div>
                 <div class="col-sm-4 mx-0 px-0">
                     <div class="progress-line DarkBlue">
@@ -49,17 +51,17 @@
                     <div class="progress-box DarkBlue">
                         2
                     </div>
-                    <div class="LightBlue mt-1 pt-1 mx-auto" style="background-color:#FFF; text-transform:uppercase;">Submit Info</div>
+                    <h6 class="LightBlue LightBlueColor mt-1 pt-1 mx-auto" style="background-color:#FFF; text-transform:uppercase;">Submit Info</h6>
                 </div>
                 <div class="col-sm-5 mx-0 px-0">
-                    <div class="progress-line DarkBlue">
+                    <div class="progress-line" style="color: #000;">
                     </div>
                 </div>
                 <div class="col-sm-1 mx-0 px-0">
                     <div class="progress-box" style="color: #000;">
                         3
                     </div>
-                    <div class="LightBlue Text mt-1 pt-1 mx-auto" style="background-color:#FFF; color: #FFF; text-transform:uppercase;">Complete</div>
+                    <h6 class="LightBlue LightBlueColor mt-1 pt-1 mx-auto" style="background-color:#FFF; text-transform:uppercase; overflow-wrap: break-word;">Complete</h6>
                 </div>
 
     </div>
