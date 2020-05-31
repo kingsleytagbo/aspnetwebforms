@@ -90,7 +90,13 @@ namespace LMS
 
                     // Redirect back to original URL.
                     // Response.Redirect(FormsAuthentication.GetRedirectUrl(username, rememberme));
-                    Response.Redirect("Register.aspx", false);
+                    string redirectPage = Server.UrlDecode(Request["ReturnUrl"]);
+
+                    if (redirectPage == null)
+                        redirectPage = "Register.aspx";
+
+                    // point to redirectPage to return to a Redirect Location
+                    Response.Redirect("Register.aspx", true);
 
                 }
             }

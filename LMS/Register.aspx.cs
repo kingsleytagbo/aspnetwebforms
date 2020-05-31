@@ -51,6 +51,9 @@ namespace LMS
             else
             {
                 //Server Side Validation Succeeded
+                var messages = new LMS.Business.EmailProvider();
+                messages.Send();
+
                 Response.Redirect("RegisterThankYou");
             }
         }
