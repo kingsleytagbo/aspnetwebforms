@@ -52,7 +52,7 @@ namespace LMS
             {
                 //Server Side Validation Succeeded
                 var messages = new LMS.Business.EmailProvider();
-                messages.Send();
+                messages.Send(email);
 
                 Response.Redirect("RegisterThankYou");
             }

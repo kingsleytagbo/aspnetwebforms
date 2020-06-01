@@ -9,13 +9,13 @@ namespace LMS.Business
 {
     public class EmailProvider
     {
-        public void Send()
+        public void Send(string t0)
         {
             try
             {
-                string from = "contact@full-stack.guru"; //Replace this with your own correct Gmail Address
+                string from = "code@full-stack.guru"; //Replace this with your own correct Gmail Address
 
-                string to = "contactus@homeschoolk12.com"; //Replace this with the Email Address to whom you want to send the mail
+                //string to = "contactus@homeschoolk12.com"; //Replace this with the Email Address to whom you want to send the mail
 
                 System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
                 mail.To.Add(new MailAddress(to, to, System.Text.Encoding.UTF8));
@@ -33,7 +33,7 @@ namespace LMS.Business
                 SmtpClient client = new SmtpClient();
                 //Add the Creddentials- use your own email id and password
 
-                client.Credentials = new System.Net.NetworkCredential(from, "Unilag1900#");
+                client.Credentials = new System.Net.NetworkCredential(from, "speakcore#");
 
                 client.Port = 8889; //587 - Gmail works on this port
                 client.Host = "mail.full-stack.guru";  // "smtp.gmail.com" - Gmail;

@@ -70,4 +70,3 @@ D:\Projects\_github\dotnetwebforms\LMS\bin\Microsoft.CodeDom.Providers.DotNetCom
 D:\Projects\_github\dotnetwebforms\LMS\obj\Debug\LMS.csproj.CopyComplete
 D:\Projects\_github\dotnetwebforms\LMS\obj\Debug\LMS.dll
 D:\Projects\_github\dotnetwebforms\LMS\obj\Debug\LMS.pdb
-D:\Projects\_github\dotnetwebforms\LMS\obj\Debug\LMS.csprojAssemblyReference.cache
