@@ -9,7 +9,7 @@ namespace LMS.Business
 {
     public class EmailProvider
     {
-        public void Send(string to)
+        public void Send(string to, string firstname, string lastname)
         {
             try
             {
@@ -22,13 +22,14 @@ namespace LMS.Business
                 mail.From = new MailAddress(from, from, System.Text.Encoding.UTF8);
                 mail.Subject = "CONFIRMATION - Speaker Training Meeting";
                 mail.SubjectEncoding = System.Text.Encoding.UTF8;
-                mail.Body = this.GetBody();
-                if (string.IsNullOrEmpty(mail.Body))
+               string body = this.GetBody().Replace("[FIRSTNAME]", firstname).Replace("[LASTNAME]", lastname);
+                if (string.IsNullOrEmpty(body))
                 {
-                    mail.Body = "Dear <br /><br />" + "On behalf of Pharma Company Inc. thank you for registering for the Speaker Training Meeting. <br /><br />" +
+                    body = "Dear <br /><br />" + "On behalf of Pharma Company Inc. thank you for registering for the Speaker Training Meeting. <br /><br />" +
                      "You will receive a formal confirmation email within the next 3-5 business days, including information for <br /><br />" +
                      "booking your travel. <br /><br />  Reagsrds.";
                 }
+                mail.Body = body;
                 mail.BodyEncoding = System.Text.Encoding.UTF8;
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
