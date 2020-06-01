@@ -73,7 +73,6 @@
             </button>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a class="nav-link" href="/Default.aspx">Home</a></li>
                     <% if (Request.IsAuthenticated)
                         {%>
                     <li class="nav-item"><a class="nav-link" href="/Pages/Register/Register.aspx">Register</a></li>
