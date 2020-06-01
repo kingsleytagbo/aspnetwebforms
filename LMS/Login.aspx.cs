@@ -93,10 +93,10 @@ namespace LMS
                     string redirectPage = Server.UrlDecode(Request["ReturnUrl"]);
 
                     if (redirectPage == null)
-                        redirectPage = "Register.aspx";
+                        redirectPage = "~/Pages/Register/Register.aspx";
 
                     // point to redirectPage to return to a Redirect Location
-                    Response.Redirect("Register.aspx", true);
+                    Response.Redirect("~/Pages/Register/Register.aspx", true);
 
                 }
             }

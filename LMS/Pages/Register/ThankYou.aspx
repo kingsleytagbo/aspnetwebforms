@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterThankYou.aspx.cs" Inherits="LMS.RegisterThankYou" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ThankYou.aspx.cs" Inherits="LMS.RegisterThankYou" %>
 <asp:Content ID="MetaTags" ContentPlaceHolderID="MetaContent" runat="server">
     <style>
         .progress-box {
@@ -30,15 +30,14 @@
         <h3>Complete</h3>
 </asp:Content>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="row mb-3 rounded-lg p-2" style="position:relative;">
+<asp:Content ID="Progress1" ContentPlaceHolderID="ProgressContent" runat="server">
+       <div class="row mb-3 rounded-lg p-2" style="position:relative;">
 
                 <div class="col-sm-1 mx-0 px-0">
                     <div class="progress-box DarkBlue">
                         1
                     </div>
-                    <h6 class="LightBlue LightBlueColor mt-1 pt-1 mx-auto" style="                            background-color: #FFF;
+                    <h6 class="LightBlueColor mt-1 pt-1 mx-auto" style="
                             font-size: 1rem;
                             text-transform: uppercase;">Register</h6>
                 </div>
@@ -50,7 +49,7 @@
                     <div class="progress-box DarkBlue">
                         2
                     </div>
-                    <h6 class="LightBlue LightBlueColor mt-1 pt-1 mx-auto" style="background-color:#FFF; text-transform:uppercase;">Submit Info</h6>
+                    <h6 class="LightBlueColor mt-1 pt-1 mx-auto" style="text-transform:uppercase;">Submit Info</h6>
                 </div>
                 <div class="col-sm-5 mx-0 px-0">
                     <div class="progress-line DarkBlue">
@@ -60,10 +59,13 @@
                     <div class="progress-box DarkBlue">
                         3
                     </div>
-                    <h6 class="LightBlue LightBlueColor mt-1 pt-1 mx-auto" style="background-color:#FFF; text-transform:uppercase; overflow-wrap: break-word;">Complete</h6>
+                    <h6 class="LightBlueColor mt-1 pt-1 mx-auto" style="text-transform:uppercase;">Complete</h6>
                 </div>
 
     </div>
+</asp:Content>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="was-validated">
 

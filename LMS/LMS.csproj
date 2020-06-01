@@ -127,8 +127,8 @@
     <Content Include="Content\Themes\bootstrap\4_5\js\bootstrap.bundle.min.js" />
     <Content Include="Content\Themes\bootstrap\4_5\js\bootstrap.js" />
     <Content Include="Content\Themes\bootstrap\4_5\js\bootstrap.min.js" />
-    <Content Include="RegisterThankYou.aspx" />
-    <Content Include="Register.aspx" />
+    <Content Include="Pages\Register\ThankYou.aspx" />
+    <Content Include="Pages\Register\Register.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -208,18 +208,18 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegisterThankYou.aspx.cs">
-      <DependentUpon>RegisterThankYou.aspx</DependentUpon>
+    <Compile Include="Pages\Register\ThankYou.aspx.cs">
+      <DependentUpon>ThankYou.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegisterThankYou.aspx.designer.cs">
-      <DependentUpon>RegisterThankYou.aspx</DependentUpon>
+    <Compile Include="Pages\Register\ThankYou.aspx.designer.cs">
+      <DependentUpon>ThankYou.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Register.aspx.cs">
+    <Compile Include="Pages\Register\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register.aspx.designer.cs">
+    <Compile Include="Pages\Register\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">

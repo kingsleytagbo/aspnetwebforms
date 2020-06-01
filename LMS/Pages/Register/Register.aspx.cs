@@ -54,7 +54,7 @@ namespace LMS
                 var messages = new LMS.Business.EmailProvider();
                 messages.Send(email);
 
-                Response.Redirect("RegisterThankYou");
+                Response.Redirect("~/Pages/Register/ThankYou.aspx");
             }
         }
       
