@@ -84,7 +84,15 @@
             <!--/.nav-collapse -->
         </nav>
 
+                <!--BEGIN LOGO HEADER -->
+            <div class="row">
+                <div class="col-12">
+                    <div style="background-color: white;" class="text-center row h-100 justify-content-center align-items-center"><img class="img-fluid" src="/Content/Images/logo.png" alt="Logo" /></div>
+                </div>
+            </div>
+
         <div class="container-fluid">
+            <!--BEGIN HEADER -->
             <div class="row mx-0 px-0">
                 <div class="col-12 px-0">
                     <div class="alert alert-warning show text-center mb-5 mt-5 LightBlueBG" role="alert">

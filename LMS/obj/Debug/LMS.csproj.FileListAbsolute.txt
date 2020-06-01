@@ -70,3 +70,4 @@ D:\Projects\_github\dotnetwebforms\LMS\bin\roslyn\vbc.exe.config
 D:\Projects\_github\dotnetwebforms\LMS\bin\roslyn\vbc.rsp
 D:\Projects\_github\dotnetwebforms\LMS\bin\roslyn\VBCSCompiler.exe
 D:\Projects\_github\dotnetwebforms\LMS\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\_github\dotnetwebforms\LMS\obj\Debug\LMS.csprojAssemblyReference.cache
