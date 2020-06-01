@@ -5,6 +5,7 @@ using System.Web;
 
 using System.Net.Mail;
 using System.Net.Mime;
+using System.Configuration;
 
 namespace LMS.Business
 {
@@ -14,16 +15,21 @@ namespace LMS.Business
         {
             try
             {
-                string from = "code@full-stack.guru"; //Replace this with your own correct Gmail Address
+                string smtpUsername = ConfigurationManager.AppSettings["smtp_username"].ToString();
+                string smtpPassword = ConfigurationManager.AppSettings["smtp_password"].ToString();
+                string smtpServer = ConfigurationManager.AppSettings["smtp_server"].ToString();
+                int smtpPort = Convert.ToInt16(ConfigurationManager.AppSettings["smtp_port"]);
+                Boolean smtpSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["smtp_ssl"]);
 
-                //string to = "contactus@homeschoolk12.com"; //Replace this with the Email Address to whom you want to send the mail
+                string from = smtpUsername; 
 
                 System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
                 mail.To.Add(new MailAddress(to, to, System.Text.Encoding.UTF8));
                 mail.From = new MailAddress(from, from, System.Text.Encoding.UTF8);
                 mail.Subject = "CONFIRMATION - Speaker Training Meeting";
                 mail.SubjectEncoding = System.Text.Encoding.UTF8;
-               string body = this.GetBody().Replace("[FIRSTNAME]", firstname).Replace("[LASTNAME]", lastname);
+
+                string body = this.GetBody().Replace("[FIRSTNAME]", firstname).Replace("[LASTNAME]", lastname);
                 if (string.IsNullOrEmpty(body))
                 {
                     body = "Dear <br /><br />" + "On behalf of Pharma Company Inc. thank you for registering for the Speaker Training Meeting. <br /><br />" +
@@ -43,13 +49,13 @@ namespace LMS.Business
                 mail.Priority = MailPriority.High;
 
                 SmtpClient client = new SmtpClient();
+
                 //Add the Creddentials- use your own email id and password
+                client.Credentials = new System.Net.NetworkCredential(from, smtpPassword);
 
-                client.Credentials = new System.Net.NetworkCredential(from, "speakcore#");
-
-                client.Port = 8889; //587 - Gmail works on this port
-                client.Host = "mail.full-stack.guru";  // "smtp.gmail.com" - Gmail;
-                client.EnableSsl = false; //true; - Gmail works on Server Secured Layer
+                client.Port = smtpPort; //587 - Gmail works on this port
+                client.Host = smtpServer;  // "smtp.gmail.com" - Gmail;
+                client.EnableSsl = smtpSSL; //true; - Gmail works on Server Secured Layer
                 try
                 {
                     client.Send(mail);
