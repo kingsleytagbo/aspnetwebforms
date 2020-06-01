@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 
 using System.Net.Mail;
+using System.Net.Mime;
 
 namespace LMS.Business
 {
@@ -28,8 +29,15 @@ namespace LMS.Business
                     body = "Dear <br /><br />" + "On behalf of Pharma Company Inc. thank you for registering for the Speaker Training Meeting. <br /><br />" +
                      "You will receive a formal confirmation email within the next 3-5 business days, including information for <br /><br />" +
                      "booking your travel. <br /><br />  Reagsrds.";
+                    mail.Body = body;
                 }
-                mail.Body = body;
+                else
+                {
+                    var logoResource = this.GetLogoResource();
+                    AlternateView logoView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
+                    logoView.LinkedResources.Add(logoResource);
+                    mail.AlternateViews.Add(logoView);
+                }
                 mail.BodyEncoding = System.Text.Encoding.UTF8;
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
@@ -63,6 +71,24 @@ namespace LMS.Business
             {
                 Console.Write(ex.ToString());
             }
+        }
+
+        private LinkedResource GetLogoResource()
+        {
+            LinkedResource logo = null;
+
+            try
+            {
+                string filePath = string.Concat(AppDomain.CurrentDomain.BaseDirectory, "\\Content\\Images\\Logo.png");
+                logo = new LinkedResource(filePath);
+                logo.ContentId = "logo";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return logo;
         }
 
         private string GetBody()
