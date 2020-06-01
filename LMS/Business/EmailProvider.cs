@@ -22,10 +22,13 @@ namespace LMS.Business
                 mail.From = new MailAddress(from, from, System.Text.Encoding.UTF8);
                 mail.Subject = "CONFIRMATION - Speaker Training Meeting";
                 mail.SubjectEncoding = System.Text.Encoding.UTF8;
-                mail.Body = 
-                    "Dear \r\n" + "On behalf of Pharma Company Inc. thank you for registering for the Speaker Training Meeting. \r\n" +
-                    "You will receive a formal confirmation email within the next 3-5 business days, including information for \r\n" + 
-                    "booking your travel. \r\n  Reagsrds.";
+                mail.Body = this.GetBody();
+                if (string.IsNullOrEmpty(mail.Body))
+                {
+                    mail.Body = "Dear <br /><br />" + "On behalf of Pharma Company Inc. thank you for registering for the Speaker Training Meeting. <br /><br />" +
+                     "You will receive a formal confirmation email within the next 3-5 business days, including information for <br /><br />" +
+                     "booking your travel. <br /><br />  Reagsrds.";
+                }
                 mail.BodyEncoding = System.Text.Encoding.UTF8;
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
@@ -59,6 +62,25 @@ namespace LMS.Business
             {
                 Console.Write(ex.ToString());
             }
+        }
+
+        private string GetBody()
+        {
+            string body = string.Empty;
+
+            try
+            {
+                string filePath = string.Concat(AppDomain.CurrentDomain.BaseDirectory,  "\\Content\\EmailTemplates\\Register_ThankYou.html");
+                System.IO.StreamReader reader = new System.IO.StreamReader(filePath);
+                body = reader.ReadToEnd();
+                reader.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return body;
         }
     }
 }
