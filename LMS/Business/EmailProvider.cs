@@ -9,7 +9,7 @@ namespace LMS.Business
 {
     public class EmailProvider
     {
-        public void Send(string t0)
+        public void Send(string to)
         {
             try
             {
