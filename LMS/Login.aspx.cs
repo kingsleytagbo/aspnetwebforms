@@ -62,8 +62,6 @@ namespace LMS
 
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-                //MembershipProvider currentProvider = System.Web.Security.Membership.Provider;
-
                 // Validate the user against the custom SQL Membership Provider
                 isAuthenticated = Membership.ValidateUser(username, password);
 

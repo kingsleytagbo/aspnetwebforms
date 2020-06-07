@@ -1,0 +1,2 @@
+D:\Projects\_github\dotnetwebforms\LMS.Tests\obj\Debug\LMS.Tests.csprojAssemblyReference.cache
+D:\Projects\_github\dotnetwebforms\LMS.Tests\obj\Debug\LMS.Tests.dll

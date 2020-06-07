@@ -147,7 +147,7 @@
         <div class="row">
             <div class="col-12">
                 <h6 class="DarkGrey mb-2">Please provide your email address.<br />
-                    All meeting correspondence will be sent via email.
+                    All correspondence will be sent via email.
                 </h6>
             </div>
         </div>

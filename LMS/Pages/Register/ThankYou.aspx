@@ -74,7 +74,7 @@
                 <h4 class="mb-4">Thank you for registering!
                 </h4>
                 <h5 class="DarkGrey mb-4">
-                    You should receive a confirmation email momentarily containing additional details.
+                    You will receive a confirmation email Anytime from now, containing additional details.
                 </h5>
             </div>
         </div>

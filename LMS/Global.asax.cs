@@ -33,13 +33,6 @@ namespace LMS
                          true, null, out membershipStatus);
                 }
             }
-
-            /*
-            var membershipStatus = new System.Web.Security.MembershipCreateStatus();
-            LMS.Business.CustomMembershipProvider provider = new LMS.Business.CustomMembershipProvider();
-            provider.CreateUser("Kingsley", "@gmail.com", "@gmail.com", "What is my first name", "KIngsley",
-                 true, null, out membershipStatus);
-           */
         }
 
         protected void Session_PostAuthenticateRequest(object sender, EventArgs e)

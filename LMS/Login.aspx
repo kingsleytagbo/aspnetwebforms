@@ -7,6 +7,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="was-validated">
+
         <div class="form-group">
             <label for="txtUsername">User Name *</label>
             <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Username ..." />
@@ -15,7 +16,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-12">
-                    <h6 class="DarkGrey mb-2">Please enter you case sensitive password from your official invitation.</h6>
+                    <h6 class="DarkGrey mb-2">Please enter you case sensitive password </h6>
                 </div>
             </div>
             <label for="txtPassword">Password *</label>
@@ -23,12 +24,13 @@
             <div id="PasswordValid" runat="server" class="valid-feedback"></div>
             <div id="PasswordInvalid" runat="server" class="invalid-feedback">X</div>
         </div>
+ 
         <div class="form-group form-check">
             <div class="checkbox">
                 <asp:CheckBox ID="chkRememberMe" Text="Remember Me" runat="server" />
             </div>
         </div>
-
+       
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
