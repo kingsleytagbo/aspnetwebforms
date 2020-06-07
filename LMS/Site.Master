@@ -122,8 +122,8 @@
             </div>
 
             <footer class="mt-5">
-                <nav class="navbar fixed-bottom navbar-expand bg-secondary pt-3 pb-3 mt-5 DarkGreyBG">
-                    <a class="text-secondary mx-auto" href="#"><div class="DarkGreyBG">&copy; <%: DateTime.Now.Year %> - LMS</div> </a></nav>
+                <nav class="navbar fixed-bottom navbar-expand bg-secondary pt-3 pb-3 mt-5">
+                    <a class="text-light mx-auto" href="http://code.full-stack.guru/"><span>&copy; Code.Full-Stack.Guru&nbsp;<%: DateTime.Now.Year %> - LMS</span> </a></nav>
             </footer>
         </div>
 
