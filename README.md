@@ -4,5 +4,5 @@ https://getbootstrap.com/docs/4.5/getting-started/download/
 # How To Build Your Website in ASP.NET WEB FORMD
 
 ## Login Page
-![Login](/Content/Images/Login.PNG?raw=true "Title")
+![Login](LMS/Content/Images/Login.PNG?raw=true "Title")
 
